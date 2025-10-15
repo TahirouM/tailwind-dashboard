@@ -27,7 +27,7 @@ const annotationPlugin = (indexToMark: number): Plugin<'line'> => ({
   afterDatasetsDraw(chart) {
     const { ctx } = chart
     const dataset = chart.getDatasetMeta(1) // second line (indigo)
-    const pt = dataset?.data?.[indexToMark] as any
+    const pt = dataset?.data?.[indexToMark] as { x: number; y: number } | undefined
     if (!pt) return
 
     const x = pt.x
